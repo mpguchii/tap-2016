@@ -18,3 +18,6 @@ C:\Users\mpguchii\Desktop\Ordenacao\obj\Release\Ordenacao.csproj.GenerateResourc
 D:\Programação\Projetos\Ordenação\Código\bin\Release\Ordenacao.exe.config
 D:\Programação\Projetos\Ordenação\Código\obj\Release\Ordenacao.exe
 D:\Programação\Projetos\Ordenação\Código\obj\Release\Ordenacao.pdb
+D:\Programação\Projetos\Ordenacao\Codigo\bin\Release\Ordenacao.exe.config
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.exe
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.pdb
