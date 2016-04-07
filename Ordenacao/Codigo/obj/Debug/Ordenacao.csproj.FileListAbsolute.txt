@@ -1,0 +1,18 @@
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\bin\Debug\Ordenacao.exe.config
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\bin\Debug\Ordenacao.exe
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\bin\Debug\Ordenacao.pdb
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.csprojResolveAssemblyReference.cache
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.Properties.Resources.resources
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.csproj.GenerateResource.Cache
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.exe
+c:\users\mpguchii\documents\visual studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.pdb
+C:\Users\mpguchii\Documents\Visual Studio 2013\Projects\Ordenacao\obj\Debug\Ordenacao.frmMain.resources
+E:\Ordenacao\bin\Debug\Ordenacao.exe.config
+E:\Ordenacao\obj\Debug\Ordenacao.exe
+E:\Ordenacao\obj\Debug\Ordenacao.pdb
+E:\Ordenacao\bin\Debug\Ordenacao.exe
+E:\Ordenacao\bin\Debug\Ordenacao.pdb
+E:\Ordenacao\obj\Debug\Ordenacao.csprojResolveAssemblyReference.cache
+E:\Ordenacao\obj\Debug\Ordenacao.frmMain.resources
+E:\Ordenacao\obj\Debug\Ordenacao.Properties.Resources.resources
+E:\Ordenacao\obj\Debug\Ordenacao.csproj.GenerateResource.Cache
