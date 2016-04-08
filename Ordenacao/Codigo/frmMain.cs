@@ -14,7 +14,11 @@ namespace Ordenacao
 
     public partial class frmMain : Form
     {
-
+        /*
+         *Enumerador:
+         *Enumerador utulizados para facililitar o processo de ordenação,
+         *além de deixar o código mais bonito e orientado.
+         */
         #region Enumerador
         enum ordenacao
         {
@@ -31,26 +35,36 @@ namespace Ordenacao
         }
         #endregion
 
+
+
         public frmMain()
         {
             InitializeComponent();
         }
 
 
+        /*
+         *Método Ordenar: Método Base do Processo.
+         *Nele é feito todo o processo de ordenação de cada um dos métodos. 
+         */
 
         #region Ordenar
         private void Ordenar(ordenacao ord)
         {
+            //"zerar" o label e limpar o listbox do resultado 
             lblTempo.Text = "00:00:00.000000";
             lstResultado.Items.Clear();
 
+            //definição do timer para contagem do tempo de ordenação
             var timer = new Stopwatch();
 
-
+            //definicão do array com tamanho dos item do listbox dos números gerados
             int[] array = new int[lstNumeros.Items.Count];
-
+            
             int[] Resultado = new int[0];
 
+            //for para varrer o listbox dos números gerados e adicionar na array
+            // obs: esse processo demora alguns segundos acima do 20000 números gerados
             for (int i = 0; i < lstNumeros.Items.Count; i++)
             {
                 array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
@@ -58,19 +72,23 @@ namespace Ordenacao
 
             if (txtNum.Text != "")
             {
-
+                //switch para verificar qual método de ordenação foi selecionado
                 switch (ord)
                 {
                     case ordenacao.Insertion:
 
+                        //inicio do timer
                         timer.Start();
 
+                        //array resultado receber os numeros já ordenados
+                        //vindo dos método de ordenação presente na classe Ordenação.cs
                         Resultado  = Ordenacao.InsertionSort(array);
-
+                        
+                        //parar o timer
                         timer.Stop();
 
                         break;
-
+                        //Para todos os métodos abaixo o processo é o mesmo do descrito acima
                     case ordenacao.Selection:
 
                         timer.Start();
@@ -156,11 +174,14 @@ namespace Ordenacao
                         break;
                 }
 
+                // for para varrer o array com os itens ordenados e jogar dentyro do listbox dos itens ordenados
+                // obs: esse processo demora alguns segundos acima do 20000 números gerados
                 for (int i = 0; i < Resultado.Length; i++)
                 {
                     lstResultado.Items.Add(Resultado[i]);
                 }
                 
+                //tempo gasto vai no label de controle de tempo
                 lblTempo.Text = timer.Elapsed.ToString();
 
             }
@@ -171,6 +192,52 @@ namespace Ordenacao
         }
         #endregion
 
+
+        private void btnGerar_Click(object sender, EventArgs e)
+        {
+            /*
+             * Código Abaixo é somente para gerar números aleatórios 
+             * e jogar dentro do listbox.
+             */
+
+            lstResultado.Items.Clear();
+            lstNumeros.Items.Clear();
+
+            Random randNum = new Random();
+            int i = 0;
+
+            Int32.TryParse(txtNum.Text, out i);
+
+
+            Random rnd = new Random();
+
+            for (int count = 0; count < i; count++)
+                lstNumeros.Items.Add(rnd.Next(i + 1).ToString());
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            /*
+             *Código Abaixo somente feito para evitar  
+             * de ser digitado uma letra por exemplo no textbox.
+             */
+            if (!char.IsDigit(e.KeyChar))
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+
+        /*
+         * Métodos de Ordenação
+         * A partir de aqui, para cada botão, é chamado seu respectivo método de ordenação no Método Ordenar.
+         * Ex.: Ordenar(ordenacao.Insertion);
+         * Ou seja dentro do click do botão Insertion é chamado o método Ordenar passando o método selecionado.
+         */
 
         #region Insertion
         private void btnInsertionSort_Click(object sender, EventArgs e)
@@ -309,32 +376,6 @@ namespace Ordenacao
             Ordenar(ordenacao.Shell);
         }
         #endregion
-
-        private void btnGerar_Click(object sender, EventArgs e)
-        {
-            lstResultado.Items.Clear();
-            lstNumeros.Items.Clear();
-            Random randNum = new Random();
-            int i = 0;
-            Int32.TryParse(txtNum.Text, out i);
-
-            Random rnd = new Random();
-
-            for (int count = 0; count < i; count++)
-                lstNumeros.Items.Add(rnd.Next(i + 1).ToString());
-        }
-
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
 
 
     }

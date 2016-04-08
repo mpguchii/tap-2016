@@ -11,51 +11,65 @@ namespace Ordenacao
     {
 
         #region Insertion Sort
+
+        /*
+         * Insertion Sort
+         * Algoritimo Adaptado de http://www.softwareandfinance.com/CSharp/Insertion_Sort.html
+         */
         public static int[] InsertionSort(int[] vetor)
         {
             int i, j, atual;
+            //for para varrer todo o vetor
             for (i = 1; i < vetor.Length; i++)
             {
-                atual = vetor[i];
+                atual = vetor[i]; //guarda a posição do vetor atual
                 j = i;
+                
+                //while que enquanto a varivel j for maior que 0 e o número
+                //na posição do vetor for maior que o numero atual
+                //vai ordenando os elementos do vetor mais a esquerda 
                 while ((j > 0) && (vetor[j - 1] > atual))
                 {
-                    vetor[j] = vetor[j - 1];
-                    j = j - 1;
+                    vetor[j] = vetor[j - 1];//passa o número anterior para a posição atual do vetor
+                    j = j - 1;// e diminui uma posição de j
                 }
-                vetor[j] = atual;
+
+                vetor[j] = atual; //passa o número guardado para uma posição antes no vetor
             }
+
             return vetor;
         }
         #endregion
 
         #region Shell Sort
+
+        /*
+         * Shell Sort
+         * Algoritimo Adaptado de http://www.codeproject.com/Articles/80546/Comparison-Sorting-Algorithms-in-C-Explained
+         */
         public static int[] shellSort(int[] vetor)
         {
-            int h = 1;
-            int n = vetor.Length;
-
-            while (h < n)
+            int j, temp = 0;
+            int metade = (vetor.Length) / 2;
+            while (metade > 0)
             {
-                h = h * 3 + 1;
-            }
-
-            h = h / 3;
-            int c, j;
-            while (h > 0)
-            {
-                for (int i = h; i < n; i++)
+                for (int index = 0; index < vetor.Length; index++)
                 {
-                    c = vetor[i];
-                    j = i;
-                    while (j >= h && vetor[j - h] > c)
+                    j = index;
+                    temp = vetor[index];
+                    while ((j >= metade) && vetor[j - metade] > temp)
                     {
-                        vetor[j] = vetor[j - h];
-                        j = j - h;
+                        vetor[j] = vetor[j - metade];
+                        j = j - metade;
                     }
-                    vetor[j] = c;
+                    vetor[j] = temp;
                 }
-                h = h / 2;
+                if (metade / 2 != 0)
+                    metade = metade / 2;
+                else if (metade == 1)
+                    metade = 0;
+                else
+                    metade = 1;
             }
 
             return vetor;

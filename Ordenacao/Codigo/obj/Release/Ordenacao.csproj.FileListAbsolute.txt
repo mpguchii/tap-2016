@@ -21,3 +21,9 @@ D:\Programação\Projetos\Ordenação\Código\obj\Release\Ordenacao.pdb
 D:\Programação\Projetos\Ordenacao\Codigo\bin\Release\Ordenacao.exe.config
 D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.exe
 D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.pdb
+D:\Programação\Projetos\Ordenacao\Codigo\bin\Release\Ordenacao.exe
+D:\Programação\Projetos\Ordenacao\Codigo\bin\Release\Ordenacao.pdb
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.csprojResolveAssemblyReference.cache
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.frmMain.resources
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.Properties.Resources.resources
+D:\Programação\Projetos\Ordenacao\Codigo\obj\Release\Ordenacao.csproj.GenerateResource.Cache
