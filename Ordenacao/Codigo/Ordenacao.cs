@@ -51,23 +51,23 @@ namespace Ordenacao
         {
             int j, temp = 0;
             int metade = (vetor.Length) / 2;
-            while (metade > 0)
+            while (metade > 0) //até que a metade seja maior que 0
             {
-                for (int index = 0; index < vetor.Length; index++)
+                for (int index = 0; index < vetor.Length; index++) // for que enquanto o index for menor que o tamanho do vetor
                 {
                     j = index;
                     temp = vetor[index];
-                    while ((j >= metade) && vetor[j - metade] > temp)
-                    {
-                        vetor[j] = vetor[j - metade];
+                    while ((j >= metade) && vetor[j - metade] > temp) //enquanto j for maior ou igual a metade e o vetor na posição
+                    {                                                 //[j-metade]  for maior que a variavel temp
+                        vetor[j] = vetor[j - metade]; //vetor na posição[j] vai receber vetor na posição[j-metadae]
                         j = j - metade;
                     }
                     vetor[j] = temp;
                 }
-                if (metade / 2 != 0)
-                    metade = metade / 2;
+                if (metade / 2 != 0) //se a diferença da metade / 2 for = 0 
+                    metade = metade / 2; //a metade e novamente dividida por 2
                 else if (metade == 1)
-                    metade = 0;
+                    metade = 0; 
                 else
                     metade = 1;
             }
@@ -78,21 +78,25 @@ namespace Ordenacao
         #endregion
 
         #region Selection Sort
+        /*
+         * Selection Sort
+         * Algoritimo Adaptado de http://cforbeginners.com/CSharp/SelectionSort.html
+         */
         public static int[] selectionSort(int[] vetor)
         {
             int min, aux;
 
-            for (int i = 0; i < vetor.Length - 1; i++)
+            for (int i = 0; i < vetor.Length - 1; i++) //for que e executado até i ser menor que o tamanho do vetor -1
             {
                 min = i;
 
-                for (int j = i + 1; j < vetor.Length; j++)
-                    if (vetor[j] < vetor[min])
-                        min = j;
+                for (int j = i + 1; j < vetor.Length; j++) //for que é executado até j seja menor que o tamanho do vetor
+                    if (vetor[j] < vetor[min]) //se o vetor na posicao[j] for< vetor na posicao[min]
+                        min = j; //menor valor no vetor
 
-                if (min != i)
+                if (min != i) //se o valor menor do vetor for diferente de 1
                 {
-                    aux = vetor[min];
+                    aux = vetor[min];    // faz a troca de posição entre os menores valor
                     vetor[min] = vetor[i];
                     vetor[i] = aux;
                 }

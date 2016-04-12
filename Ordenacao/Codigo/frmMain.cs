@@ -176,11 +176,12 @@ namespace Ordenacao
 
                 // for para varrer o array com os itens ordenados e jogar dentyro do listbox dos itens ordenados
                 // obs: esse processo demora alguns segundos acima do 20000 números gerados
+                lstResultado.BeginUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
                 for (int i = 0; i < Resultado.Length; i++)
                 {
                     lstResultado.Items.Add(Resultado[i]);
                 }
-                
+                lstResultado.EndUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
                 //tempo gasto vai no label de controle de tempo
                 lblTempo.Text = timer.Elapsed.ToString();
 
@@ -211,8 +212,10 @@ namespace Ordenacao
 
             Random rnd = new Random();
 
+            lstNumeros.BeginUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
             for (int count = 0; count < i; count++)
                 lstNumeros.Items.Add(rnd.Next(i + 1).ToString());
+            lstNumeros.EndUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
         }
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
