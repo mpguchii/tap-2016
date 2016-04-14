@@ -64,15 +64,20 @@ namespace Ordenacao
                 {
                     btnGerar.Enabled = false;
                     grdOrd.Enabled = false;
+                    lstNumeros.Items.Clear();
+                    lstResultado.Items.Clear();
+
                 }
             }
             else
             {
                 btnGerar.Enabled = false;
                 grdOrd.Enabled = false;
+                lstNumeros.Items.Clear();
+                lstResultado.Items.Clear();
             }
 
-
+            this.Text = "Ordenação";
         }
 
 
@@ -264,7 +269,7 @@ namespace Ordenacao
 
             lstResultado.Items.Clear();
             lstNumeros.Items.Clear();
-
+            this.Text = "Ordenação";
             Random randNum = new Random();
             int i = 0;
 
