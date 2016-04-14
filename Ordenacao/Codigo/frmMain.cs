@@ -40,23 +40,58 @@ namespace Ordenacao
         public frmMain()
         {
             InitializeComponent();
+            btnGerar.Enabled = false;
+            grdOrd.Enabled = false;
+            
         }
 
 
-        /*
-         *Método Ordenar: Método Base do Processo.
-         *Nele é feito todo o processo de ordenação de cada um dos métodos. 
-         */
+
+        private void txtNum_TextChanged(object sender, EventArgs e)
+        {
+            int i = 0;
+
+            Int32.TryParse(txtNum.Text, out i);
+
+            if (txtNum.Text != "")
+            {
+                if (i > 0)
+                {
+                    btnGerar.Enabled = true;
+                    grdOrd.Enabled = true;
+                }
+                else
+                {
+                    btnGerar.Enabled = false;
+                    grdOrd.Enabled = false;
+                }
+            }
+            else
+            {
+                btnGerar.Enabled = false;
+                grdOrd.Enabled = false;
+            }
+
+
+        }
+
 
         #region Ordenar
         private void Ordenar(ordenacao ord)
         {
+            /*
+             *Método Ordenar: Método Base do Processo.
+             *Nele é feito todo o processo de ordenação de cada um dos métodos. 
+             */
+
             //"zerar" o label e limpar o listbox do resultado 
             lblTempo.Text = "00:00:00.000000";
             lstResultado.Items.Clear();
 
             //definição do timer para contagem do tempo de ordenação
             var timer = new Stopwatch();
+
+            var metodo = string.Empty;
 
             //definicão do array com tamanho dos item do listbox dos números gerados
             int[] array = new int[lstNumeros.Items.Count];
@@ -87,6 +122,8 @@ namespace Ordenacao
                         //parar o timer
                         timer.Stop();
 
+                        metodo = "Insertion Sort";
+
                         break;
                         //Para todos os métodos abaixo o processo é o mesmo do descrito acima
                     case ordenacao.Selection:
@@ -97,6 +134,8 @@ namespace Ordenacao
 
                         timer.Stop();
 
+                        metodo = "Selection Sort";
+
                         break;
 
                     case ordenacao.Quick:
@@ -106,6 +145,9 @@ namespace Ordenacao
                         Resultado = Ordenacao.quickSort(array);
 
                         timer.Stop();
+
+                        metodo = "Quick Sort";
+
                         break;
 
                     case ordenacao.Heap:
@@ -114,6 +156,9 @@ namespace Ordenacao
                         Resultado = Ordenacao.heapSort(array);
 
                         timer.Stop();
+
+                        metodo = "Heap Sort";
+
                         break;
 
                     case ordenacao.Bucket:
@@ -123,6 +168,9 @@ namespace Ordenacao
                         Resultado = Ordenacao.BucketSort(array);
 
                         timer.Stop();
+
+                        metodo = "Bucket Sort";
+
                         break;
 
                     case ordenacao.Radix:
@@ -132,6 +180,8 @@ namespace Ordenacao
                         Resultado = Ordenacao.RadixSort(array);
 
                         timer.Stop();
+
+                        metodo = "Radix Sort";
 
                         break;
 
@@ -143,6 +193,8 @@ namespace Ordenacao
 
                         timer.Stop();
 
+                        metodo = "Merge Sort";
+
                         break;
 
                     case ordenacao.Cocktail:
@@ -152,6 +204,8 @@ namespace Ordenacao
                         Resultado = Ordenacao.cocktailSort(array);
 
                         timer.Stop();
+
+                        metodo = "Cocktail Sort";
 
                         break;
 
@@ -163,6 +217,8 @@ namespace Ordenacao
 
                         timer.Stop();
 
+                        metodo = "Comb Sort";
+
                         break;
 
                     case ordenacao.Shell:
@@ -171,6 +227,9 @@ namespace Ordenacao
                         Resultado = Ordenacao.shellSort(array);
 
                         timer.Stop();
+
+                        metodo = "Shell Sort";
+
                         break;
                 }
 
@@ -185,6 +244,8 @@ namespace Ordenacao
                 //tempo gasto vai no label de controle de tempo
                 lblTempo.Text = timer.Elapsed.ToString();
 
+                this.Text = "Ordenação ::: Método " + metodo + " executado em " + timer.Elapsed.ToString() + " segundos";
+
             }
             else
             {
@@ -194,7 +255,7 @@ namespace Ordenacao
         #endregion
 
 
-        private void btnGerar_Click(object sender, EventArgs e)
+        private void Gerar()
         {
             /*
              * Código Abaixo é somente para gerar números aleatórios 
@@ -218,6 +279,11 @@ namespace Ordenacao
             lstNumeros.EndUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
         }
 
+        private void btnGerar_Click(object sender, EventArgs e)
+        {
+            Gerar();
+        }
+
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -231,6 +297,8 @@ namespace Ordenacao
                 {
                     e.Handled = true;
                 }
+
+                if (e.KeyChar == 13) Gerar(); //se a tecla enter for pressionada chama o método Gerar.
             }
         }
 
@@ -379,6 +447,7 @@ namespace Ordenacao
             Ordenar(ordenacao.Shell);
         }
         #endregion
+
 
 
     }

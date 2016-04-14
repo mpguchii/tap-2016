@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.txtNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGerar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstNumeros = new System.Windows.Forms.ListBox();
-            this.gpr2 = new System.Windows.Forms.GroupBox();
+            this.grdOrd = new System.Windows.Forms.GroupBox();
             this.btnCombSort = new System.Windows.Forms.Button();
             this.btnCocktailsSort = new System.Windows.Forms.Button();
             this.btnMergeSort = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             this.lstResultado = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.gpr2.SuspendLayout();
+            this.grdOrd.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(76, 20);
             this.txtNum.TabIndex = 0;
+            this.txtNum.TextChanged += new System.EventHandler(this.txtNum_TextChanged);
             this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // label1
@@ -101,24 +103,24 @@
             this.lstNumeros.Size = new System.Drawing.Size(246, 238);
             this.lstNumeros.TabIndex = 3;
             // 
-            // gpr2
+            // grdOrd
             // 
-            this.gpr2.Controls.Add(this.btnCombSort);
-            this.gpr2.Controls.Add(this.btnCocktailsSort);
-            this.gpr2.Controls.Add(this.btnMergeSort);
-            this.gpr2.Controls.Add(this.btnRadixSort);
-            this.gpr2.Controls.Add(this.btnBucketSort);
-            this.gpr2.Controls.Add(this.btnInsertionSort);
-            this.gpr2.Controls.Add(this.btnHeapSort);
-            this.gpr2.Controls.Add(this.btnSelectionSort);
-            this.gpr2.Controls.Add(this.btnShellSort);
-            this.gpr2.Controls.Add(this.btnQuickSort);
-            this.gpr2.Location = new System.Drawing.Point(283, 6);
-            this.gpr2.Name = "gpr2";
-            this.gpr2.Size = new System.Drawing.Size(139, 308);
-            this.gpr2.TabIndex = 4;
-            this.gpr2.TabStop = false;
-            this.gpr2.Text = "Método De Ordenação";
+            this.grdOrd.Controls.Add(this.btnCombSort);
+            this.grdOrd.Controls.Add(this.btnCocktailsSort);
+            this.grdOrd.Controls.Add(this.btnMergeSort);
+            this.grdOrd.Controls.Add(this.btnRadixSort);
+            this.grdOrd.Controls.Add(this.btnBucketSort);
+            this.grdOrd.Controls.Add(this.btnInsertionSort);
+            this.grdOrd.Controls.Add(this.btnHeapSort);
+            this.grdOrd.Controls.Add(this.btnSelectionSort);
+            this.grdOrd.Controls.Add(this.btnShellSort);
+            this.grdOrd.Controls.Add(this.btnQuickSort);
+            this.grdOrd.Location = new System.Drawing.Point(283, 6);
+            this.grdOrd.Name = "grdOrd";
+            this.grdOrd.Size = new System.Drawing.Size(139, 308);
+            this.grdOrd.TabIndex = 4;
+            this.grdOrd.TabStop = false;
+            this.grdOrd.Text = "Método De Ordenação";
             // 
             // btnCombSort
             // 
@@ -266,16 +268,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 326);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.gpr2);
+            this.Controls.Add(this.grdOrd);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordenação";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.gpr2.ResumeLayout(false);
+            this.grdOrd.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -289,7 +292,7 @@
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lstNumeros;
-        private System.Windows.Forms.GroupBox gpr2;
+        private System.Windows.Forms.GroupBox grdOrd;
         private System.Windows.Forms.Button btnInsertionSort;
         private System.Windows.Forms.Button btnHeapSort;
         private System.Windows.Forms.Button btnSelectionSort;
