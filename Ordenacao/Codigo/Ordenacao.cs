@@ -108,15 +108,19 @@ namespace Ordenacao
 #endregion
 
         #region Heap Sort
+        /*
+            Heap Soprt 
+            Algoritimo Adapatdo de http://csharpbrasil.com.br/algoritmos-de-ordenacao-em-csharp/
+         */
         public static int[] heapSort(int[] vetor)
         {
-            buildMaxHeap(vetor);
+            buildMaxHeap(vetor); /*Cria o Heap*/
             int n = vetor.Length;
 
             for (int i = vetor.Length - 1; i > 0; i--)
-            {
-                swap(vetor, i, 0);
-                maxHeapify(vetor, 0, --n);
+            {                                         
+                troca(vetor, i, 0);          /*Coloca o maior elemento no final do vetor*/
+                maxHeapify(vetor, 0, --n);   /*Refaz o Heap, desconsiderando o elemento que foi p/ o final até que o vetor esteja ordenado*/
             }
 
             return vetor;
@@ -124,35 +128,38 @@ namespace Ordenacao
 
         private static void buildMaxHeap(int[] v)
         {
-            for (int i = v.Length / 2 - 1; i >= 0; i--)
+            for (int i = v.Length / 2 - 1; i >= 0; i--) /*Para cada nó interno(não-folha),*/
             {
-                maxHeapify(v, i, v.Length);
+                maxHeapify(v, i, v.Length);             /* chama maxHeapify, seguindo o sentido folha-raiz*/
             }
         }
 
         private static void maxHeapify(int[] v, int pos, int n)
         {
-            int max = 2 * pos + 1, right = max + 1;
+            int max = 2 * pos + 1, right = max + 1; /*
+               Uma árvore heap é representada como um array. Para você obter os filhos de um elemento, 
+               vc precisa multiplicar sua posição por 2. */
             if (max < n)
             {
-                if (right < n && v[max] < v[right])
+                if (right < n && v[max] < v[right]) /*aqui ele obtém as posições dos filhos (max e right) de pos.*/
                 {
-                    max = right;
+                    max = right; 
                 }
-                if (v[max] > v[pos])
+                if (v[max] > v[pos]) /*aqui ele verifica qual dos dois filhos possuem o maior valor e faz a troca*/
                 {
-                    swap(v, max, pos);
+                    troca(v, max, pos);
                     maxHeapify(v, max, n);
                 }
             }
         }
 
-        private static void swap(int[] v, int j, int aposJ)
+        private static void troca(int[] v, int j, int aposJ) /*função simples para realizar a troca entre os nós*/
         {
             int aux = v[j];
             v[j] = v[aposJ];
             v[aposJ] = aux;
         }
+
         #endregion
 
         #region Quick Sort
