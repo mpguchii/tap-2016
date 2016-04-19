@@ -164,12 +164,17 @@ namespace Ordenacao
 
         #region Quick Sort
 
+        /*
+            Heap Soprt 
+            Algoritimo Adapatdo de http://www.softwareandfinance.com/CSharp/QuickSort_Recursive.html
+         */
+
         public static int[] quickSort(int[] vetor)
         {
             int inicio = 0;
             int fim = vetor.Length - 1;
 
-            quickSort(vetor, inicio, fim);
+            quickSort(vetor, inicio, fim); /*chama a função quickSort */
 
             return vetor;
         }
