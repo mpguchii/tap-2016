@@ -181,25 +181,25 @@ namespace Ordenacao
 
         private static void quickSort(int[] vetor, int inicio, int fim)
         {
-            if (inicio < fim)
+            if (inicio < fim) //até que o inicio seja menor que o fim
             {
                 int p = vetor[inicio];
                 int i = inicio + 1;
                 int f = fim;
 
-                while (i <= f)
+                while (i <= f) //enquanto o inicio + 1 for menor ou igual que o fim 
                 {
-                    if (vetor[i] <= p)
+                    if (vetor[i] <= p) //se o vetor na posicao inicio + 1 for menor ou igual que vetor[inicio]
                     {
-                        i++;
+                        i++; //incrementa i
                     }
-                    else if (p < vetor[f])
+                    else if (p < vetor[f])//se vetor[inicio] for menor q vetor[fim]
                     {
-                        f--;
+                        f--; //decrementa f
                     }
-                    else
+                    else 
                     {
-                        int troca = vetor[i];
+                        int troca = vetor[i]; //realiza a troca 
                         vetor[i] = vetor[f];
                         vetor[f] = troca;
                         i++;
@@ -210,8 +210,8 @@ namespace Ordenacao
                 vetor[inicio] = vetor[f];
                 vetor[f] = p;
 
-                quickSort(vetor, inicio, f - 1);
-                quickSort(vetor, f + 1, fim);
+                quickSort(vetor, inicio, f - 1); //chama a funcao recursivamente
+                quickSort(vetor, f + 1, fim); //chama a funcao recursivamente
             }
         }
 

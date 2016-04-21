@@ -42,7 +42,7 @@ namespace Ordenacao
             InitializeComponent();
             btnGerar.Enabled = false;
             grdOrd.Enabled = false;
-            
+
         }
 
 
@@ -80,6 +80,46 @@ namespace Ordenacao
             this.Text = "Ordenação";
         }
 
+        static string GetMetodo(ordenacao ord)
+        {
+            var metodo = string.Empty;
+            switch (ord)
+            {
+                case ordenacao.Insertion:
+                    metodo = "Insertion Sort";
+                    break;
+                case ordenacao.Selection:
+                    metodo = "Selection Sort";
+                    break;
+                case ordenacao.Quick:
+                    metodo = "Quick Sort";
+                    break;
+                case ordenacao.Heap:
+                    metodo = "Heap Sort";
+                    break;
+                case ordenacao.Bucket:
+                    metodo = "Bucket Sort";
+                    break;
+                case ordenacao.Radix:
+                    metodo = "Radix Sort";
+                    break;
+                case ordenacao.Merge:
+                    metodo = "Merge Sort";
+                    break;
+                case ordenacao.Cocktail:
+                    metodo = "Cocktail Sort";
+                    break;
+                case ordenacao.Comb:
+                    metodo = "Comb Sort";
+                    break;
+                case ordenacao.Shell:
+                    metodo = "Shell Sort";
+                    break;
+            }
+
+            return metodo;
+        }
+
 
         #region Ordenar
         private void Ordenar(ordenacao ord)
@@ -90,171 +130,180 @@ namespace Ordenacao
              */
 
             //"zerar" o label e limpar o listbox do resultado 
-            lblTempo.Text = "00:00:00.000000";
-            lstResultado.Items.Clear();
 
-            //definição do timer para contagem do tempo de ordenação
-            var timer = new Stopwatch();
-
-            var metodo = string.Empty;
-
-            //definicão do array com tamanho dos item do listbox dos números gerados
-            int[] array = new int[lstNumeros.Items.Count];
-            
-            int[] Resultado = new int[0];
-
-            //for para varrer o listbox dos números gerados e adicionar na array
-            // obs: esse processo demora alguns segundos acima do 20000 números gerados
-            for (int i = 0; i < lstNumeros.Items.Count; i++)
+            if (lstNumeros.Items.Count > 0)
             {
-                array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
-            }
 
-            if (txtNum.Text != "")
-            {
-                //switch para verificar qual método de ordenação foi selecionado
-                switch (ord)
-                {
-                    case ordenacao.Insertion:
+                lblTempo.Text = "00:00:00.000000";
+                lstResultado.Items.Clear();
 
-                        //inicio do timer
-                        timer.Start();
+                //definição do timer para contagem do tempo de ordenação
+                var timer = new Stopwatch();
 
-                        //array resultado receber os numeros já ordenados
-                        //vindo dos método de ordenação presente na classe Ordenação.cs
-                        Resultado  = Ordenacao.InsertionSort(array);
-                        
-                        //parar o timer
-                        timer.Stop();
+                var metodo = string.Empty;
 
-                        metodo = "Insertion Sort";
+                //definicão do array com tamanho dos item do listbox dos números gerados
+                int[] array = new int[lstNumeros.Items.Count];
 
-                        break;
-                        //Para todos os métodos abaixo o processo é o mesmo do descrito acima
-                    case ordenacao.Selection:
+                int[] Resultado = new int[0];
 
-                        timer.Start();
-
-                        Resultado = Ordenacao.selectionSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Selection Sort";
-
-                        break;
-
-                    case ordenacao.Quick:
-
-                        timer.Start();
-
-                        Resultado = Ordenacao.quickSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Quick Sort";
-
-                        break;
-
-                    case ordenacao.Heap:
-                        timer.Start();
-
-                        Resultado = Ordenacao.heapSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Heap Sort";
-
-                        break;
-
-                    case ordenacao.Bucket:
-
-                        timer.Start();
-
-                        Resultado = Ordenacao.BucketSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Bucket Sort";
-
-                        break;
-
-                    case ordenacao.Radix:
-
-                        timer.Start();
-
-                        Resultado = Ordenacao.RadixSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Radix Sort";
-
-                        break;
-
-                    case ordenacao.Merge:
-
-                       timer.Start();
-
-                        Resultado = Ordenacao.MergeSortIni(array);
-
-                        timer.Stop();
-
-                        metodo = "Merge Sort";
-
-                        break;
-
-                    case ordenacao.Cocktail:
-
-                        timer.Start();
-
-                        Resultado = Ordenacao.cocktailSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Cocktail Sort";
-
-                        break;
-
-                    case ordenacao.Comb:
-
-                        timer.Start();
-
-                        Resultado = Ordenacao.combSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Comb Sort";
-
-                        break;
-
-                    case ordenacao.Shell:
-                        timer.Start();
-
-                        Resultado = Ordenacao.shellSort(array);
-
-                        timer.Stop();
-
-                        metodo = "Shell Sort";
-
-                        break;
-                }
-
-                // for para varrer o array com os itens ordenados e jogar dentyro do listbox dos itens ordenados
+                //for para varrer o listbox dos números gerados e adicionar na array
                 // obs: esse processo demora alguns segundos acima do 20000 números gerados
-                lstResultado.BeginUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
-                for (int i = 0; i < Resultado.Length; i++)
+                for (int i = 0; i < lstNumeros.Items.Count; i++)
                 {
-                    lstResultado.Items.Add(Resultado[i]);
+                    array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
                 }
-                lstResultado.EndUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
-                //tempo gasto vai no label de controle de tempo
-                lblTempo.Text = timer.Elapsed.ToString();
 
-                this.Text = "Ordenação ::: Método " + metodo + " executado em " + timer.Elapsed.ToString() + " segundos";
+                if (txtNum.Text != "")
+                {
+                    //switch para verificar qual método de ordenação foi selecionado
+                    switch (ord)
+                    {
+                        case ordenacao.Insertion:
 
+                            //inicio do timer
+                            timer.Start();
+
+                            //array resultado receber os numeros já ordenados
+                            //vindo dos método de ordenação presente na classe Ordenação.cs
+                            Resultado = Ordenacao.InsertionSort(array);
+
+                            //parar o timer
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Insertion);
+
+                            break;
+                        //Para todos os métodos abaixo o processo é o mesmo do descrito acima
+                        case ordenacao.Selection:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.selectionSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Selection);
+
+                            break;
+
+                        case ordenacao.Quick:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.quickSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Quick);
+
+                            break;
+
+                        case ordenacao.Heap:
+                            timer.Start();
+
+                            Resultado = Ordenacao.heapSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Heap);
+
+                            break;
+
+                        case ordenacao.Bucket:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.BucketSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Bucket);
+
+                            break;
+
+                        case ordenacao.Radix:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.RadixSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Radix);
+
+                            break;
+
+                        case ordenacao.Merge:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.MergeSortIni(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Merge);
+
+                            break;
+
+                        case ordenacao.Cocktail:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.cocktailSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Cocktail);
+
+                            break;
+
+                        case ordenacao.Comb:
+
+                            timer.Start();
+
+                            Resultado = Ordenacao.combSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Comb);
+
+                            break;
+
+                        case ordenacao.Shell:
+                            timer.Start();
+
+                            Resultado = Ordenacao.shellSort(array);
+
+                            timer.Stop();
+
+                            metodo = GetMetodo(ordenacao.Shell);
+
+                            break;
+                    }
+
+                    // for para varrer o array com os itens ordenados e jogar dentyro do listbox dos itens ordenados
+                    // obs: esse processo demora alguns segundos acima do 20000 números gerados
+                    lstResultado.BeginUpdate();//adicionado para deixar mais rápido o preenchimento do listbox
+                    for (int i = 0; i < Resultado.Length; i++)
+                    {
+                        lstResultado.Items.Add(Resultado[i]);
+                    }
+                    lstResultado.EndUpdate();//adicionado para deixar mais rápido o preenchimento do listbox
+                    //tempo gasto vai no label de controle de tempo
+                    lblTempo.Text = timer.Elapsed.ToString();
+
+                    this.Text = "Ordenação ::: Método " + metodo + " executado em " + timer.Elapsed.ToString() + " segundos";
+
+                }
+                else
+                {
+                    MessageBox.Show("Por Favor, Insira um número válido no campo Quantidade de Números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                MessageBox.Show("Por Favor, Insira um número válido no campo Quantidade de Números!");
+                MessageBox.Show("Por Favor Clique no botão Gerar para gerar números antes de selecionar um método de ordenação!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         #endregion
@@ -284,6 +333,104 @@ namespace Ordenacao
             lstNumeros.EndUpdate();//adicionado para deixar mai rápido o preenchimento do listbox
         }
 
+        private void Testar()
+        {
+
+            List<Tuple<string, string>> lista = new List<Tuple<string, string>>();
+            
+            int i = 0;
+            var timer = new Stopwatch();
+            string metodo = string.Empty;
+            int[] Resultado = new int[0];
+
+            int[] array = new int[lstNumeros.Items.Count];
+
+            for (i = 0; i < lstNumeros.Items.Count; i++)
+            {
+                array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
+            }
+
+            i = 0;
+
+            for (i = 1; i < 11; i++)
+            {
+                ordenacao ord = (ordenacao)i;
+                timer.Reset();
+                switch (ord)
+                {
+                    case ordenacao.Insertion:
+                        timer.Start();
+                        Resultado = Ordenacao.InsertionSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Selection:
+                        timer.Start();
+                        Resultado = Ordenacao.selectionSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Quick:
+                        timer.Reset();
+                        timer.Start();
+                        Resultado = Ordenacao.quickSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Heap:
+                        timer.Start();
+                        Resultado = Ordenacao.heapSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Bucket:
+                        timer.Start();
+                        Resultado = Ordenacao.BucketSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Radix:
+                        timer.Start();
+                        Resultado = Ordenacao.RadixSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Merge:
+                        timer.Start();
+                        Resultado = Ordenacao.MergeSortIni(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Cocktail:
+                        timer.Start();
+                        Resultado = Ordenacao.cocktailSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Comb:
+                        timer.Start();
+                        Resultado = Ordenacao.combSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                    case ordenacao.Shell:
+                        timer.Start();
+                        Resultado = Ordenacao.shellSort(array);
+                        timer.Stop();
+                        metodo = GetMetodo(ord);
+                        break;
+                }
+
+                lista.Add(new Tuple<string, string>(metodo, timer.Elapsed.ToString()));
+
+            }
+            frmResultado resultado = new frmResultado();
+            resultado.Carregar(lista);
+            resultado.Show();
+
+        }
+
+
         private void btnGerar_Click(object sender, EventArgs e)
         {
             Gerar();
@@ -307,6 +454,10 @@ namespace Ordenacao
             }
         }
 
+        private void btnTestarTodos_Click(object sender, EventArgs e)
+        {
+            Testar();
+        }
 
         /*
          * Métodos de Ordenação
@@ -362,87 +513,21 @@ namespace Ordenacao
         #region Merge
         private void btnMergeSort_Click(object sender, EventArgs e)
         {
-            lstResultado.Items.Clear();
-            lblTempo.Text = "00:00:00.000000";
-            var timer = new Stopwatch();
-
-            int[] array = new int[lstNumeros.Items.Count];
-
-            for (int i = 0; i < lstNumeros.Items.Count; i++)
-            {
-                array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
-            }
-
-
-            timer.Start();
-
-            int[] resultado = Ordenacao.MergeSortIni(array);
-
-            for (int i = 0; i < resultado.Length; i++)
-            {
-                lstResultado.Items.Add(resultado[i]);
-            }
-
-            timer.Stop();
-            lblTempo.Text = timer.Elapsed.ToString();
+            Ordenar(ordenacao.Merge);
         }
         #endregion
 
         #region Cocktail
         private void btnCocktailsSort_Click(object sender, EventArgs e)
         {
-            lstResultado.Items.Clear();
-            lblTempo.Text = "00:00:00.000000";
-            var timer = new Stopwatch();
-
-            int[] array = new int[lstNumeros.Items.Count];
-
-            for (int i = 0; i < lstNumeros.Items.Count; i++)
-            {
-                array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
-            }
-
-
-            timer.Start();
-
-            int[] resultado = Ordenacao.MergeSortIni(array);
-
-            for (int i = 0; i < resultado.Length; i++)
-            {
-                lstResultado.Items.Add(resultado[i]);
-            }
-
-            timer.Stop();
-            lblTempo.Text = timer.Elapsed.ToString();
+            Ordenar(ordenacao.Cocktail);
         }
         #endregion
 
         #region Comb
         private void btnCombSort_Click(object sender, EventArgs e)
         {
-            lstResultado.Items.Clear();
-            lblTempo.Text = "00:00:00.000000";
-            var timer = new Stopwatch();
-
-            int[] array = new int[lstNumeros.Items.Count];
-
-            for (int i = 0; i < lstNumeros.Items.Count; i++)
-            {
-                array[i] = Int32.Parse(lstNumeros.Items[i].ToString());
-            }
-
-
-            timer.Start();
-
-            int[] resultado = Ordenacao.combSort(array);
-
-            for (int i = 0; i < resultado.Length; i++)
-            {
-                lstResultado.Items.Add(resultado[i]);
-            }
-
-            timer.Stop();
-            lblTempo.Text = timer.Elapsed.ToString();
+            Ordenar(ordenacao.Comb);
         }
         #endregion
 
@@ -452,6 +537,8 @@ namespace Ordenacao
             Ordenar(ordenacao.Shell);
         }
         #endregion
+
+
 
 
 

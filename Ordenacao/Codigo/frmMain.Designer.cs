@@ -49,6 +49,7 @@
             this.lblTempo = new System.Windows.Forms.Label();
             this.lstResultado = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTestarTodos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grdOrd.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,7 +91,7 @@
             this.groupBox1.Controls.Add(this.txtNum);
             this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 307);
+            this.groupBox1.Size = new System.Drawing.Size(265, 329);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerar Números";
@@ -100,11 +101,12 @@
             this.lstNumeros.FormattingEnabled = true;
             this.lstNumeros.Location = new System.Drawing.Point(9, 57);
             this.lstNumeros.Name = "lstNumeros";
-            this.lstNumeros.Size = new System.Drawing.Size(246, 238);
+            this.lstNumeros.Size = new System.Drawing.Size(246, 264);
             this.lstNumeros.TabIndex = 3;
             // 
             // grdOrd
             // 
+            this.grdOrd.Controls.Add(this.btnTestarTodos);
             this.grdOrd.Controls.Add(this.btnCombSort);
             this.grdOrd.Controls.Add(this.btnCocktailsSort);
             this.grdOrd.Controls.Add(this.btnMergeSort);
@@ -117,14 +119,14 @@
             this.grdOrd.Controls.Add(this.btnQuickSort);
             this.grdOrd.Location = new System.Drawing.Point(283, 6);
             this.grdOrd.Name = "grdOrd";
-            this.grdOrd.Size = new System.Drawing.Size(139, 308);
+            this.grdOrd.Size = new System.Drawing.Size(139, 330);
             this.grdOrd.TabIndex = 4;
             this.grdOrd.TabStop = false;
             this.grdOrd.Text = "Método De Ordenação";
             // 
             // btnCombSort
             // 
-            this.btnCombSort.Location = new System.Drawing.Point(22, 250);
+            this.btnCombSort.Location = new System.Drawing.Point(21, 273);
             this.btnCombSort.Name = "btnCombSort";
             this.btnCombSort.Size = new System.Drawing.Size(93, 23);
             this.btnCombSort.TabIndex = 10;
@@ -134,7 +136,7 @@
             // 
             // btnCocktailsSort
             // 
-            this.btnCocktailsSort.Location = new System.Drawing.Point(22, 221);
+            this.btnCocktailsSort.Location = new System.Drawing.Point(21, 244);
             this.btnCocktailsSort.Name = "btnCocktailsSort";
             this.btnCocktailsSort.Size = new System.Drawing.Size(93, 23);
             this.btnCocktailsSort.TabIndex = 9;
@@ -144,7 +146,7 @@
             // 
             // btnMergeSort
             // 
-            this.btnMergeSort.Location = new System.Drawing.Point(22, 193);
+            this.btnMergeSort.Location = new System.Drawing.Point(21, 216);
             this.btnMergeSort.Name = "btnMergeSort";
             this.btnMergeSort.Size = new System.Drawing.Size(93, 23);
             this.btnMergeSort.TabIndex = 8;
@@ -154,7 +156,7 @@
             // 
             // btnRadixSort
             // 
-            this.btnRadixSort.Location = new System.Drawing.Point(22, 164);
+            this.btnRadixSort.Location = new System.Drawing.Point(21, 187);
             this.btnRadixSort.Name = "btnRadixSort";
             this.btnRadixSort.Size = new System.Drawing.Size(93, 23);
             this.btnRadixSort.TabIndex = 7;
@@ -164,7 +166,7 @@
             // 
             // btnBucketSort
             // 
-            this.btnBucketSort.Location = new System.Drawing.Point(22, 135);
+            this.btnBucketSort.Location = new System.Drawing.Point(21, 158);
             this.btnBucketSort.Name = "btnBucketSort";
             this.btnBucketSort.Size = new System.Drawing.Size(93, 23);
             this.btnBucketSort.TabIndex = 6;
@@ -174,7 +176,7 @@
             // 
             // btnInsertionSort
             // 
-            this.btnInsertionSort.Location = new System.Drawing.Point(22, 19);
+            this.btnInsertionSort.Location = new System.Drawing.Point(21, 42);
             this.btnInsertionSort.Name = "btnInsertionSort";
             this.btnInsertionSort.Size = new System.Drawing.Size(93, 23);
             this.btnInsertionSort.TabIndex = 5;
@@ -184,7 +186,7 @@
             // 
             // btnHeapSort
             // 
-            this.btnHeapSort.Location = new System.Drawing.Point(22, 106);
+            this.btnHeapSort.Location = new System.Drawing.Point(21, 129);
             this.btnHeapSort.Name = "btnHeapSort";
             this.btnHeapSort.Size = new System.Drawing.Size(93, 23);
             this.btnHeapSort.TabIndex = 5;
@@ -194,7 +196,7 @@
             // 
             // btnSelectionSort
             // 
-            this.btnSelectionSort.Location = new System.Drawing.Point(22, 48);
+            this.btnSelectionSort.Location = new System.Drawing.Point(21, 71);
             this.btnSelectionSort.Name = "btnSelectionSort";
             this.btnSelectionSort.Size = new System.Drawing.Size(93, 23);
             this.btnSelectionSort.TabIndex = 5;
@@ -204,7 +206,7 @@
             // 
             // btnShellSort
             // 
-            this.btnShellSort.Location = new System.Drawing.Point(22, 278);
+            this.btnShellSort.Location = new System.Drawing.Point(21, 301);
             this.btnShellSort.Name = "btnShellSort";
             this.btnShellSort.Size = new System.Drawing.Size(93, 23);
             this.btnShellSort.TabIndex = 5;
@@ -214,7 +216,7 @@
             // 
             // btnQuickSort
             // 
-            this.btnQuickSort.Location = new System.Drawing.Point(22, 77);
+            this.btnQuickSort.Location = new System.Drawing.Point(21, 100);
             this.btnQuickSort.Name = "btnQuickSort";
             this.btnQuickSort.Size = new System.Drawing.Size(93, 23);
             this.btnQuickSort.TabIndex = 5;
@@ -229,7 +231,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(428, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(261, 307);
+            this.groupBox2.Size = new System.Drawing.Size(261, 329);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resultado";
@@ -250,7 +252,7 @@
             this.lstResultado.FormattingEnabled = true;
             this.lstResultado.Location = new System.Drawing.Point(6, 57);
             this.lstResultado.Name = "lstResultado";
-            this.lstResultado.Size = new System.Drawing.Size(245, 238);
+            this.lstResultado.Size = new System.Drawing.Size(245, 264);
             this.lstResultado.TabIndex = 4;
             // 
             // label2
@@ -262,11 +264,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Tempo Gasto";
             // 
+            // btnTestarTodos
+            // 
+            this.btnTestarTodos.Location = new System.Drawing.Point(21, 15);
+            this.btnTestarTodos.Name = "btnTestarTodos";
+            this.btnTestarTodos.Size = new System.Drawing.Size(93, 23);
+            this.btnTestarTodos.TabIndex = 11;
+            this.btnTestarTodos.Text = "Testar Todos";
+            this.btnTestarTodos.UseVisualStyleBackColor = true;
+            this.btnTestarTodos.Click += new System.EventHandler(this.btnTestarTodos_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 326);
+            this.ClientSize = new System.Drawing.Size(692, 344);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grdOrd);
             this.Controls.Add(this.groupBox1);
@@ -307,6 +319,7 @@
         private System.Windows.Forms.Button btnMergeSort;
         private System.Windows.Forms.Button btnCocktailsSort;
         private System.Windows.Forms.Button btnCombSort;
+        private System.Windows.Forms.Button btnTestarTodos;
     }
 }
 
