@@ -1,0 +1,22 @@
+CVS: 0.6
+Resumo: 1
+Projeto: 6.8
+Nota G1: 8.4
+================
+Feedback Resumo
+================
+tem título
+sem espaçamento entre parágrafos
+sem parágrafo
+sem espaçamento entre linhas
+Sem opinião
+texto diferencia jogos e simuladores porém de forma superficial.
+sem email
+====================
+Feedback Projeto
+====================
+Repositório correto. O nome da pasta deveria ter sido ordenacao e não Ordenacao.
+Contém a implementação de mais de 5 algoritmos e pelo menos 5 estão bem documetados.
+Interface gráfica excelente, mas o botão testarTodos fecha a aplicação.Pasta contém duas documentações, tive que adivinhar qual era a certa.
+Sem referências e algoritmos poderiam ter seu funcionamento detalhado.
+
